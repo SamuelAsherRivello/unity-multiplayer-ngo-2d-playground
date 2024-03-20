@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cf3b74950b299408cc642cd2423789, type: 3}
+  m_Name: ReadMe
+  m_EditorClassIdentifier: 
+  Title: Unity Multiplayer Playground 2D - Netcode For GameObjects
+  Icon: {fileID: 2800000, guid: 7c0822b0780ca4a74b276e50db2c68a3, type: 3}
+  Sections:
+  - TextHeading: Welcome
+    TextSubheading: 
+    TextBody: This repo demonstrates Unity Multiplayer with 2D via Unity Netcode
+      For Game Objects (NGO).
+    LinkName: Github.com/SamuelAsherRivello/unity-multiplayer-ngo-2d-playground
+    LinkUrl: https://github.com/SamuelAsherRivello/unity-multiplayer-ngo-2d-playground
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: Read Docs
+    TextSubheading: 
+    TextBody: Netcode for GameObjects is a high-level networking library built for
+      Unity for you to abstract networking logic. You can send GameObjects and world
+      data across a networking session to many players at once.\n\nWith Netcode for
+      GameObjects, you can focus on building your game instead of low-level protocols
+      and networking frameworks.
+    LinkName: docs-multiplayer.unity3d.com
+    LinkUrl: https://docs-multiplayer.unity3d.com/netcode/current/about/
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: Play Demos
+    TextSubheading: 
+    TextBody: Simplest playground, without multiplayer.
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: 'Version 01 - Single Player '
+    PingObjectGuid: 72f7cde6697d6214e927b487784a8bea
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: Intermediate playground, with <b>client</b> authoritative multiplayer.
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Version 02 - Multiplayer CA
+    PingObjectGuid: 13efd82e3d5dfd84ab5b87977d8bc85d
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: Advanced playground, with <b>server</b> authoritative multiplayer.
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Version 03 - Multiplayer SA
+    PingObjectGuid: 30ea8e224a865a646b16eec4ae9ea8c5
+    MenuItemName: 
+    MenuItemPath: 
+  HasLoadedLayout: 0
