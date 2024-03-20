@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.rmc.rmc-mini-mvcs": {
+      "version": "2.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
     "com.rmc.rmc-readme": {
       "version": "1.2.2",
       "depth": 0,

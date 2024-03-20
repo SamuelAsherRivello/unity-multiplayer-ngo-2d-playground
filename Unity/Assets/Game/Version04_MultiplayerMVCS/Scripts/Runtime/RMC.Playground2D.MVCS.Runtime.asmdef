@@ -1,0 +1,22 @@
+{
+    "name": "RMC.Playground2D.MVCS.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:81c689423ad2cec4f924ca45144fec4d",
+        "GUID:3b8ed52f1b5c64994af4c4e0aa4b6c4b",
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:4245cf09d0036f34e8bb2477b3fed3c2",
+        "GUID:ade99d3c828255a4e84d3298c9c9161e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

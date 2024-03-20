@@ -65,4 +65,14 @@ MonoBehaviour:
     PingObjectGuid: 30ea8e224a865a646b16eec4ae9ea8c5
     MenuItemName: 
     MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: Experimental playground, with <b>server</b> authoritative multiplayer
+      using the Mini MVCS Architecture.
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Version 04 - Multiplayer MVCS
+    PingObjectGuid: e738a7e069efec142baa0bc04b561ba2
+    MenuItemName: 
+    MenuItemPath: 
   HasLoadedLayout: 0
