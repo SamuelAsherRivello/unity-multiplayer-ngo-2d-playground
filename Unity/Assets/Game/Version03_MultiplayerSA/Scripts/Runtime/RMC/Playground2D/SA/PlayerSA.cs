@@ -21,7 +21,7 @@ namespace RMC.Playground2D.SA
 		
 		//  Fields ----------------------------------------
 		[SerializeField]
-		private Rigidbody2D _rigidBody2D;
+		protected Rigidbody2D _rigidBody2D;
 
 		[SerializeField]
 		private NetworkTransform _networkTransform;
@@ -76,7 +76,7 @@ namespace RMC.Playground2D.SA
 		}
 		
 		
-		protected void Update()
+		protected virtual void Update()
 		{
 			// Get input axes
 			float moveHorizontal = Input.GetAxis("Horizontal");
@@ -170,7 +170,7 @@ namespace RMC.Playground2D.SA
 		}
 		
 		
-		public void OnCollisionEnter2D ( Collision2D collision2D)
+		protected void OnCollisionEnter2D ( Collision2D collision2D)
 		{
 			Crate crate = collision2D.gameObject.GetComponent<Crate>();
 			if (crate != null)

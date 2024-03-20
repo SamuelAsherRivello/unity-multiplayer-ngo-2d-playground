@@ -26,6 +26,7 @@ namespace RMC.Playground2D.MVCS.Mini.View
         public IContext Context { get { return _context;} }
         public World World { get { return _world;} }
         public Crate CrateNetworkPrefab { get; set; }
+        public BulletMVCS BulletNetworkPrefab { get; set; }
 
         //  Fields ----------------------------------------
         private bool _isInitialized = false;

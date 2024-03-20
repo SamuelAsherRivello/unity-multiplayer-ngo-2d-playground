@@ -21,6 +21,9 @@ namespace RMC.Playground2D.MVCS
         [SerializeField]
         private Crate _crateNetworkPrefab;
 
+        [SerializeField]
+        private BulletMVCS _bulletNetworkPrefab;
+
         private PlaygroundMini _playgroundMini;
         
         //  Unity Methods ---------------------------------
@@ -31,6 +34,7 @@ namespace RMC.Playground2D.MVCS
             Screen.SetResolution(960, 540, FullScreenMode.Windowed);
             
             _worldView.CrateNetworkPrefab = _crateNetworkPrefab;
+            _worldView.BulletNetworkPrefab = _bulletNetworkPrefab;
             _playgroundMini = new PlaygroundMini(_worldView);
             _playgroundMini.Initialize();
         }

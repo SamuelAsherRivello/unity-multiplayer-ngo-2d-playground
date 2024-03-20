@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _worldView: {fileID: 1898640221}
   _crateNetworkPrefab: {fileID: 6793690724228592816, guid: 7267c1414f7e70843858af7818c4c5c8, type: 3}
+  _bulletNetworkPrefab: {fileID: -6010296967520491492, guid: 7b05efdae4aab974388a8d427602464b, type: 3}
 --- !u!1 &1898640219
 GameObject:
   m_ObjectHideFlags: 0
