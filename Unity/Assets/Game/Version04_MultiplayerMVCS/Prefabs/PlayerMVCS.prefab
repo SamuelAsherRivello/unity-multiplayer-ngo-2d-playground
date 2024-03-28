@@ -373,6 +373,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2178790210831187572}
   _networkObject: {fileID: -1656101430127707783}
   _spawnPoint: {fileID: 6287034524296066830}
+  BulletNetworkPrefab: {fileID: -6010296967520491492, guid: 7b05efdae4aab974388a8d427602464b, type: 3}
 --- !u!1 &5999285537620742183
 GameObject:
   m_ObjectHideFlags: 0

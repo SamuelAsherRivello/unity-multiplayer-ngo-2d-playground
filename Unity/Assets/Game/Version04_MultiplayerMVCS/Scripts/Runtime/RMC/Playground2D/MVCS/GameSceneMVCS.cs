@@ -16,7 +16,7 @@ namespace RMC.Playground2D.MVCS
     {
         //  Fields ----------------------------------------
         [SerializeField]
-        protected WorldView _worldView;
+        protected PlaygroundView playgroundView;
 
         [SerializeField]
         private Crate _crateNetworkPrefab;
@@ -33,9 +33,9 @@ namespace RMC.Playground2D.MVCS
             // spawning multiple builds for testing
             Screen.SetResolution(960, 540, FullScreenMode.Windowed);
             
-            _worldView.CrateNetworkPrefab = _crateNetworkPrefab;
-            _worldView.BulletNetworkPrefab = _bulletNetworkPrefab;
-            _playgroundMini = new PlaygroundMini(_worldView);
+            playgroundView.CrateNetworkPrefab = _crateNetworkPrefab;
+            playgroundView.BulletNetworkPrefab = _bulletNetworkPrefab;
+            _playgroundMini = new PlaygroundMini(playgroundView);
             _playgroundMini.Initialize();
         }
         

@@ -16,7 +16,7 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
     /// </summary>
     public class PlaygroundController: BaseController // Extending 'base' is optional
             <PlaygroundModel, 
-            WorldView, 
+            PlaygroundView, 
             PlaygroundService> 
     {
         //  Events ----------------------------------------
@@ -31,7 +31,7 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
         
         
         //  Initialization  -------------------------------
-        public PlaygroundController(PlaygroundModel model, WorldView view, PlaygroundService service) 
+        public PlaygroundController(PlaygroundModel model, PlaygroundView view, PlaygroundService service) 
             : base(model, view, service)
         {
         }
@@ -76,23 +76,11 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
             eventPlayer.Teleport(spawnPoint.transform.position);
         }
 
-        [ServerRpc]
+        
+        [ServerRpc (RequireOwnership = false)]
         private void ShootServerRPC(ulong shooterClientId, Vector2 position, Vector2 direction)
         {
-            Debug.LogError("CUSTOM: Each shot fired is not spawned correctly nor despawned correctly. TODO: Fix.");
-            
-            //NEEDED?
-            if (!NetworkManager.Singleton.IsServer)
-            {
-                return;
-            }
-            
-            //CORRECT?
-            BulletMVCS bullet = Object.Instantiate(_view.BulletNetworkPrefab, position, Quaternion.identity );
-            Debug.Log("isser: " + NetworkManager.Singleton.IsServer);
-            bullet.NetworkObject.Spawn(false);
-            bullet.ShooterClientId = shooterClientId;
-            bullet.Rigidbody2D.velocity = direction * bullet.Speed;
+
         }
         
         
@@ -102,10 +90,12 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
             _view.World.WorldUI.ScoreText.text = $"{nameof(GameSceneMVCS)}\nScore : {newValue:000}";
         }
 
+        
         private void Player_OnShootRequested(ulong shooterClientId, Vector2 position, Vector2 direction)
         {
             ShootServerRPC( shooterClientId, position, direction);
         }
+        
         
         private void Service_OnConnectionUnityEvent(NetworkManager networkManager, ConnectionEventData connectionEventData)
         {

@@ -20,7 +20,7 @@ namespace RMC.Playground2D.MVCS.Mini
     public class PlaygroundMini: MiniMvcs
             <Context, 
             PlaygroundModel, 
-            WorldView, 
+            PlaygroundView, 
             PlaygroundController,
             PlaygroundService>
     {
@@ -31,7 +31,7 @@ namespace RMC.Playground2D.MVCS.Mini
         //  Fields ----------------------------------------
 
         //  Initialization  -------------------------------
-        public PlaygroundMini(WorldView view)
+        public PlaygroundMini(PlaygroundView view)
         {
             _view = view;
         

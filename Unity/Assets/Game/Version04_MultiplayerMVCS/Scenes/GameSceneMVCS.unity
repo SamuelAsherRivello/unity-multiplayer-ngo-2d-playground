@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e319325140ef742a7b0b5f282e0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldView: {fileID: 1898640221}
+  playgroundView: {fileID: 1898640221}
   _crateNetworkPrefab: {fileID: 6793690724228592816, guid: 7267c1414f7e70843858af7818c4c5c8, type: 3}
   _bulletNetworkPrefab: {fileID: -6010296967520491492, guid: 7b05efdae4aab974388a8d427602464b, type: 3}
 --- !u!1 &1898640219
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1898640220}
   - component: {fileID: 1898640221}
   m_Layer: 0
-  m_Name: WorldView
+  m_Name: PlaygroundView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

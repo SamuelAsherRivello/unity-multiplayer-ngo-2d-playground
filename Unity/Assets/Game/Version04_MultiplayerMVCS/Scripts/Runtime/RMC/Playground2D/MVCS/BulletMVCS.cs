@@ -1,4 +1,3 @@
-using System;
 using RMC.Playground2D.MVCS;
 using Unity.Netcode;
 using UnityEngine;
@@ -16,9 +15,6 @@ namespace RMC.Playground2D.Shared
         private Rigidbody2D _rigidbody2D;
 
         [SerializeField]
-        private NetworkObject _networkObject;
-
-        [SerializeField]
         private float _speed = 1;
 
         private ulong _shooterClientId;
@@ -28,15 +24,19 @@ namespace RMC.Playground2D.Shared
         private Camera _camera;
         
         //  Properties ------------------------------------
-        public Rigidbody2D Rigidbody2D { get { return _rigidbody2D;}}
-        public NetworkObject NetworkObject { get { return _networkObject;}}
-        public ulong ShooterClientId { get { return _shooterClientId;} set { _shooterClientId = value;}}
+        public ulong ShooterClientId { get { return _shooterClientId;} }
         
         public float Speed { get { return _speed;}}
         
         //  Unity Methods ---------------------------------
         public override void OnNetworkSpawn()
         {
+            if (!IsServer)
+            {
+                Debug.Log("Disable bullet for non-owner. IsServer: " + IsServer);
+                enabled = false;
+            }
+            
             _camera = Camera.main;
         }
 
@@ -55,7 +55,7 @@ namespace RMC.Playground2D.Shared
                 //When offscreen for X seconds, destroy
                 if (Time.time - _lastTimeOnScreen > 1)
                 {
-                    _networkObject.Despawn(true);
+                    NetworkObject.Despawn(true);
                 }
             }
             else
@@ -64,26 +64,40 @@ namespace RMC.Playground2D.Shared
             }
         }
         
+        
         //  Methods ---------------------------------------
-        [ServerRpc (RequireOwnership = false)]
-        private void DespawnServerRpc()
+        public void CustomSpawn(ulong shooterClientId, Vector2 velocity)
         {
-            _networkObject.Despawn(true);
+            _shooterClientId = shooterClientId;
+            _rigidbody2D.velocity = velocity;
+            NetworkObject.Spawn();
+
         }
-        		
+        
+        
+        [ServerRpc (RequireOwnership = false)]
+        private void CustomDespawnServerRpc()
+        {
+            NetworkObject.Despawn(true);
+        }
+        
+        
         //  Event Handlers --------------------------------
         protected void OnTriggerEnter2D(Collider2D collider2D)
         {
+            if (!IsServer)
+            {
+                return;
+            }
+            
             PlayerMVCS player = collider2D.gameObject.GetComponent<PlayerMVCS>();
 
             if (player != null)
             {
-                Debug.Log(player.NetworkObject.OwnerClientId + " and " + ShooterClientId);
-                
                 if (player.NetworkObject.OwnerClientId != ShooterClientId)
                 {
                     player.TakeDamage();
-                    DespawnServerRpc();
+                    CustomDespawnServerRpc();
                 }
             }
         }

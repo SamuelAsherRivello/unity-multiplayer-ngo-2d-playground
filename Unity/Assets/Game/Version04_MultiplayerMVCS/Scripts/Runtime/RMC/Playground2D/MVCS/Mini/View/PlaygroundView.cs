@@ -17,7 +17,7 @@ namespace RMC.Playground2D.MVCS.Mini.View
     /// <summary>
     /// The View handles user interface and user input
     /// </summary>
-    public class WorldView: MonoBehaviour, IView
+    public class PlaygroundView: MonoBehaviour, IView
     {
         //  Events ----------------------------------------
 
