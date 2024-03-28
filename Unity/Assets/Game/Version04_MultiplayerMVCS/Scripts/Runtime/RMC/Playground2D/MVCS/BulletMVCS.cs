@@ -1,3 +1,4 @@
+using System;
 using RMC.Playground2D.MVCS;
 using Unity.Netcode;
 using UnityEngine;
@@ -71,15 +72,19 @@ namespace RMC.Playground2D.Shared
         }
         		
         //  Event Handlers --------------------------------
-        protected void OnTriggerEnter2D ( Collider2D collider2D)
+        protected void OnTriggerEnter2D(Collider2D collider2D)
         {
             PlayerMVCS player = collider2D.gameObject.GetComponent<PlayerMVCS>();
-            
-            Debug.Log(player.NetworkObject.OwnerClientId + " and " + ShooterClientId);
-            if (player != null && player.NetworkObject.OwnerClientId != ShooterClientId)
+
+            if (player != null)
             {
-                player.TakeDamage();
-                DespawnServerRpc();
+                Debug.Log(player.NetworkObject.OwnerClientId + " and " + ShooterClientId);
+                
+                if (player.NetworkObject.OwnerClientId != ShooterClientId)
+                {
+                    player.TakeDamage();
+                    DespawnServerRpc();
+                }
             }
         }
     }

@@ -200,7 +200,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &4548154074569085775
 BoxCollider2D:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3602277052
+  GlobalObjectIdHash: 2450392870
   InScenePlacedSourceGlobalObjectIdHash: 648502971
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -323,5 +323,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc57a8face4884241bfc06ab5ed7913c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   _rigidBody2D: {fileID: 2388769071067168696}
