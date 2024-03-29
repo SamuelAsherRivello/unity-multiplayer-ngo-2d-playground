@@ -7,6 +7,10 @@ namespace RMC.Playground2D.Shared
     /// <summary>
     /// Reset position when offscreen to add
     /// an emergent gameplay element of fun.
+    ///
+    /// OVERVIEW: TOPICS OF INTEREST
+    ///     1.  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    /// 
     /// </summary>
     public class BulletMVCS : NetworkBehaviour
     {
@@ -33,13 +37,13 @@ namespace RMC.Playground2D.Shared
         {
             if (!IsServer)
             {
-                Debug.Log("Disable bullet for non-owner. IsServer: " + IsServer);
                 enabled = false;
             }
             
             _camera = Camera.main;
         }
 
+        
         protected void Update()
         {
             if (_camera == null)
@@ -85,13 +89,14 @@ namespace RMC.Playground2D.Shared
         //  Event Handlers --------------------------------
         protected void OnTriggerEnter2D(Collider2D collider2D)
         {
+            // OnTriggerEnter2D may be called before OnNetworkSpawn, 
+            // so check again
             if (!IsServer)
             {
                 return;
             }
             
             PlayerMVCS player = collider2D.gameObject.GetComponent<PlayerMVCS>();
-
             if (player != null)
             {
                 if (player.NetworkObject.OwnerClientId != ShooterClientId)

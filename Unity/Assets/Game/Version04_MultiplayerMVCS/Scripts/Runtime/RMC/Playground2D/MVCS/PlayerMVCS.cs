@@ -3,7 +3,6 @@ using RMC.Playground2D.Shared;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 namespace RMC.Playground2D.MVCS
 {
@@ -24,9 +23,6 @@ namespace RMC.Playground2D.MVCS
 		//  Fields ----------------------------------------
 		[SerializeField]
 		protected SpriteRenderer _spriteRenderer;
-
-		[SerializeField]
-		protected NetworkObject _networkObject;
 
 		[SerializeField] 
 		protected GameObject _spawnPoint;
@@ -52,17 +48,13 @@ namespace RMC.Playground2D.MVCS
 					direction = Vector2.right;
 				}
 				//OnShootRequested.Invoke(_networkObject.OwnerClientId, _spawnPoint.transform.position, direction);
-
-				Debug.Log("1: " + OwnerClientId);
 				BlahServerRpc(OwnerClientId);
 			}
 		}
 
-		[ServerRpc]
+		[ServerRpc (RequireOwnership = false)]
 		public void BlahServerRpc(ulong shooterClientId)
 		{
-			Debug.Log("2: " + NetworkManager.Singleton.IsServer);
-			
 			Vector2 direction = Vector2.left;
 			if (_spriteRenderer.flipX)
 			{
@@ -73,20 +65,6 @@ namespace RMC.Playground2D.MVCS
 	
 		}
 		
-		
-		[ClientRpc]
-		public void BlahClientRpc()
-		{
-			Debug.Log("3: " + NetworkManager.Singleton.IsServer);
-
-			if (NetworkManager.Singleton.IsServer)
-			{
-				return;
-			}
-			
-	
-		}
-
 		//  Methods ---------------------------------------
 		public void TakeDamage()
 		{
