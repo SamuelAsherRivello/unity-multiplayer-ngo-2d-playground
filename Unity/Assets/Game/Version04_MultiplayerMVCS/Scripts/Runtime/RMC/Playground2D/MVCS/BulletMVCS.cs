@@ -30,13 +30,11 @@ namespace RMC.Playground2D.Shared
         //  Properties ------------------------------------
         public ulong ShooterClientId { get { return _shooterClientId;} }
         
-        public float Speed { get { return _speed;}}
-        
         //  Unity Methods ---------------------------------
         public override void OnNetworkSpawn()
         {
             if (!IsServer)
-            {
+            {   
                 enabled = false;
             }
             
@@ -70,10 +68,12 @@ namespace RMC.Playground2D.Shared
         
         
         //  Methods ---------------------------------------
-        public void CustomSpawn(ulong shooterClientId, Vector2 velocity)
+        public void CustomSpawn(ulong shooterClientId, Vector2 direction)
         {
             _shooterClientId = shooterClientId;
-            _rigidbody2D.velocity = velocity;
+            _rigidbody2D.velocity = direction * _speed;
+            
+            Debug.Log("About to spawn: " + NetworkObject.IsOwnedByServer);
             NetworkObject.Spawn();
 
         }

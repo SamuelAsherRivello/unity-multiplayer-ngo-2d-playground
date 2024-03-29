@@ -1,5 +1,4 @@
 using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.Controller;
 using RMC.Playground2D.MVCS.Mini.Model;
 using RMC.Playground2D.MVCS.Mini.Service;
 using RMC.Playground2D.MVCS.Mini.View;
@@ -14,7 +13,7 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
     /// The Controller coordinates everything between
     /// the Concerns and contains the core app logic 
     /// </summary>
-    public class PlaygroundController: BaseController // Extending 'base' is optional
+    public class PlaygroundController: BaseNetworkBehaviourController 
             <PlaygroundModel, 
             PlaygroundView, 
             PlaygroundService> 
@@ -31,12 +30,7 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
         
         
         //  Initialization  -------------------------------
-        public PlaygroundController(PlaygroundModel model, PlaygroundView view, PlaygroundService service) 
-            : base(model, view, service)
-        {
-        }
-  
-        
+       
         public override void Initialize(IContext context)
         {
             if (!IsInitialized)
@@ -77,13 +71,6 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
         }
 
         
-        [ServerRpc (RequireOwnership = false)]
-        private void ShootServerRPC(ulong shooterClientId, Vector2 position, Vector2 direction)
-        {
-
-        }
-        
-        
         //  Event Handlers --------------------------------
         private void PlayerScore_OnValueChanged(int oldValue, int newValue)
         {
@@ -93,7 +80,16 @@ namespace RMC.Playground2D.MVCS.Mini.Controller
         
         private void Player_OnShootRequested(ulong shooterClientId, Vector2 position, Vector2 direction)
         {
-            ShootServerRPC( shooterClientId, position, direction);
+            ShootBulletServerRpc(shooterClientId, position, direction);
+        }
+        
+        [ServerRpc (RequireOwnership = false)]
+        public void ShootBulletServerRpc(ulong shooterClientId, Vector2 position, Vector2 direction)
+        {
+        
+            BulletMVCS bullet = Object.Instantiate(_view.BulletNetworkPrefab, position, Quaternion.identity);
+            bullet.CustomSpawn(shooterClientId, direction);
+	
         }
         
         

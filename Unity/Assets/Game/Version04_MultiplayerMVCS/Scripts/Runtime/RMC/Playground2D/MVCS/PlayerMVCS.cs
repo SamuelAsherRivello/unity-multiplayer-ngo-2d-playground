@@ -47,23 +47,11 @@ namespace RMC.Playground2D.MVCS
 				{
 					direction = Vector2.right;
 				}
-				//OnShootRequested.Invoke(_networkObject.OwnerClientId, _spawnPoint.transform.position, direction);
-				BlahServerRpc(OwnerClientId);
+				
+				OnShootRequested.Invoke(OwnerClientId, _spawnPoint.transform.position, direction);
 			}
 		}
 
-		[ServerRpc (RequireOwnership = false)]
-		public void BlahServerRpc(ulong shooterClientId)
-		{
-			Vector2 direction = Vector2.left;
-			if (_spriteRenderer.flipX)
-			{
-				direction = Vector2.right;
-			}
-			BulletMVCS bullet = Object.Instantiate(BulletNetworkPrefab, _spawnPoint.transform.position, Quaternion.identity);
-			bullet.CustomSpawn(shooterClientId, direction * 1);
-	
-		}
 		
 		//  Methods ---------------------------------------
 		public void TakeDamage()

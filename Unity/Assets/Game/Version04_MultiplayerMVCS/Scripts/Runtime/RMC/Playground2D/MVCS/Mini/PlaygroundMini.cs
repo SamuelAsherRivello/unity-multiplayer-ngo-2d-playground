@@ -4,6 +4,8 @@ using RMC.Playground2D.MVCS.Mini.Controller;
 using RMC.Playground2D.MVCS.Mini.Model;
 using RMC.Playground2D.MVCS.Mini.Service;
 using RMC.Playground2D.MVCS.Mini.View;
+using Unity.Netcode;
+using UnityEngine;
 
 namespace RMC.Playground2D.MVCS.Mini
 {
@@ -47,7 +49,12 @@ namespace RMC.Playground2D.MVCS.Mini
                 _context = new Context();
                 _model = new PlaygroundModel();
                 _service = new PlaygroundService();
-                _controller = new PlaygroundController(_model, _view, _service);
+
+                GameObject go = new GameObject();
+                go.name = nameof(PlaygroundController);
+                _controller = go.AddComponent<PlaygroundController>();
+                go.AddComponent<NetworkObject>();
+                _controller.Initialize(_model, _view, _service);
 
                 //
                 _model.Initialize(_context);
