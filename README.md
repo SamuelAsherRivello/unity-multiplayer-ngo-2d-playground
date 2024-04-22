@@ -1,7 +1,6 @@
 
-# Unity Multiplayer Playground 2D - Netcode For GameObjects (NGO)
-
-This repo demonstrates Unity Multiplayer with 2D via Unity's [Netcode For Game Objects](https://docs-multiplayer.unity3d.com/netcode/current/about/) (NGO).
+# Unity Multiplayer Playground 2D 
+Featuring 2D via Unity's [Netcode For Game Objects](https://docs-multiplayer.unity3d.com/netcode/current/about/) (NGO).
 
 <table>
 <tr>
