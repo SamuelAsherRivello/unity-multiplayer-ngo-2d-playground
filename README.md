@@ -3,7 +3,17 @@
 
 This repo demonstrates Unity Multiplayer with 2D via Unity's [Netcode For Game Objects](https://docs-multiplayer.unity3d.com/netcode/current/about/) (NGO).
 
-<img width="480" src="./Unity/Assets/Shared/Documentation/Images/Screenshot.png" alt="Best Practices">
+<table>
+<tr>
+<th>YouTube Video Overview</th>
+</tr>
+<tr>
+<td>
+<a href="https://www.youtube.com/watch?v=G-AliHieYz4"><img width="500" src="https://img.youtube.com/vi/G-AliHieYz4/maxresdefault.jpg" /></a>
+</td>
+</tr>
+</table>
+
 
 **TLDR;**
 * Check out the [ending point](#Ending-Point), which took about 8-10 hours total from initial planning through completion of development
@@ -79,21 +89,6 @@ With infinite time, some additional improvements can be made. Some would be espe
 ## Bonus Content
 
 The supporting material (video & slides) required **additional** creation time beyond the timeline for the content above.
-
-### Videos
-
-This **Unity Project** is featured in the following YouTube video.
-
-<table>
-<tr>
-<th>Unity Multiplayer Playground 2D | Netcode For GameObjects (NGO)</th>
-</tr>
-<tr>
-<td>
-<a href="https://www.youtube.com/watch?v=UIMKp27K89o"><img width="500" src="http://i3.ytimg.com/vi/UIMKp27K89o/hqdefault.jpg" /></a>
-</td>
-</tr>
-</table>
 
 # Details
 
