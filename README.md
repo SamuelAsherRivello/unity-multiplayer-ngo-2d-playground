@@ -112,8 +112,6 @@ The supporting material (video & slides) required **additional** creation time b
 
 ----
 
-=============
-
 # Resources 
 
 ## Links
