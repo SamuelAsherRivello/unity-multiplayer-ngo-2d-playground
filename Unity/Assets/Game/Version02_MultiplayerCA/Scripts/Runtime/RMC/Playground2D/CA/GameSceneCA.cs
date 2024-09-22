@@ -54,7 +54,15 @@ namespace RMC.Playground2D.CA
         //  Methods ---------------------------------------
         private void DestroyCrate()
         {
+            if (_crateInstance == null)
+            {
+                return;
+            }
             NetworkObject crateNetworkObject = _crateInstance.GetComponent<NetworkObject>();
+            if (crateNetworkObject == null || !crateNetworkObject.IsSpawned)
+            {
+                return;
+            }
             crateNetworkObject.Despawn(true);
             _crateInstance = null;
         }

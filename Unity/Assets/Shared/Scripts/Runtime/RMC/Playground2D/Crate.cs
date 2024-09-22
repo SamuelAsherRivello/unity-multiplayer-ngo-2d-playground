@@ -33,7 +33,7 @@ namespace RMC.Playground2D.Shared
                 if (Time.time - _lastTimeOnScreen > 1)
                 {
                     transform.position = new Vector3(0, 0, 0);
-                    _rigidBody2D.velocity = new Vector2();
+                    _rigidBody2D.linearVelocity = new Vector2();
                 }
             }
             else
