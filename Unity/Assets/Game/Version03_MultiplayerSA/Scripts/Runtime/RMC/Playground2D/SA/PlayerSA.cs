@@ -46,11 +46,11 @@ namespace RMC.Playground2D.SA
 
 		public NetworkVariable<FixedString64Bytes> PlayerName = new NetworkVariable<FixedString64Bytes>(
 			readPerm:NetworkVariableReadPermission.Everyone, 
-			writePerm:NetworkVariableWritePermission.Server);
+			writePerm:NetworkVariableWritePermission.Owner);
 		
 		public NetworkVariable<int> PlayerScore = new NetworkVariable<int>(
 			readPerm:NetworkVariableReadPermission.Everyone, 
-			writePerm:NetworkVariableWritePermission.Server);
+			writePerm:NetworkVariableWritePermission.Owner);
 		
 		private Vector2 _interpolatedCurrentVelocity;
 		private readonly float _interpolatedSmoothTime = .001f;

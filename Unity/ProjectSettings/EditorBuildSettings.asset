@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Version02_MultiplayerCA/Scenes/GameSceneCA.unity
     guid: 13efd82e3d5dfd84ab5b87977d8bc85d
+  - enabled: 1
+    path: Assets/3rdParty/Unity/Multiplayer Center/MultiplayerWidgetSample.unity
+    guid: e81487a32c88542469cf6b2381d6a7f6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
